@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Career Assistant</title>
+{% endblock %}
+
+{% block body %}
+<form action="/" method="POST">
+
+    <div class="wrap">
+        <div class="search">
+            <input type="text" class="searchTerm" name="search" id="search"
+                   placeholder="Search Job, Location or Company" value={{search}}>
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+<div>
+    {% for job in jobs %}
+    <article class="job-card">
+        <div class="company-logo-img">
+            <img src={{job.logo}}>
+        </div>
+        <div class="job-title">{{job.company}} : {{job.title}}</div>
+        <div class="job-location">{{job.location}}</div>
+        <a class="apply" href={{job.url}} target="_blank">Apply</a>
+    </article>
+    {% endfor %}
+</div>
+
+{% endblock %}
