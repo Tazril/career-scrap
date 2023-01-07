@@ -16,4 +16,4 @@ def home():
 
 if __name__ == '__main__':
     driver.start()
-    app.run(debug=True)
+    app.run()

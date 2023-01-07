@@ -27,6 +27,7 @@ class MainDriver(threading.Thread):
         return self.repository.get_postings()
 
     def run(self):
+        self.update_data()
         while True:
             time.sleep(THREAD_SLEEP_DURATION)
             print('[MainDriver.run] Starting Update: ', datetime.now())
