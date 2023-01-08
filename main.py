@@ -10,7 +10,7 @@ LIMIT = 100
 
 
 def get_jobs(request):
-    text = None
+    text = ''
     if request.method == 'POST':
         text = request.form['search']
     if request.args.get('search'):
