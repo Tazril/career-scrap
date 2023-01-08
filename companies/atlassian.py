@@ -12,7 +12,7 @@ class AtlassianApiJobScrapper(APIJobScrapper):
         return "Atlassian"
 
     def get_image_url(self):
-        return "https://assets.stickpng.com/images/62c6eb897a58a4aa1fb7709e.png"
+        return "https://seeklogo.com/images/A/atlassian-logo-DF2FCF6E4D-seeklogo.com.png"
 
     def get_jobs(self):
         url = 'https://www.atlassian.com/.rest/postings'

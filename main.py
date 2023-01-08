@@ -3,7 +3,15 @@ from flask import Flask, render_template, request
 from driver import MainDriver
 
 driver = MainDriver()
-app = Flask(__name__)
+
+
+class FlaskApp(Flask):
+    def run(self, host=None, port=None, debug=None, load_dotenv=True, **options):
+        driver.start()
+        super(FlaskApp, self).run(host=host, port=port, debug=debug, load_dotenv=load_dotenv, **options)
+
+
+app = FlaskApp(__name__)
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -15,5 +23,4 @@ def home():
 
 
 if __name__ == '__main__':
-    driver.start()
     app.run()
