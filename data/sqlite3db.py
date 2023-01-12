@@ -65,7 +65,15 @@ class SQLPostingDatabase(PostingDatabase):
             cursor = self.conn.cursor()
             query = '''SELECT * FROM POSTING where company = ?'''
             cursor.execute(query, [company])
-            return cursor.fetchall()
+            data = []
+            for row in cursor.fetchall():
+                data.append({})
+                data[-1]['title'] = row[1]
+                data[-1]['location'] = row[2]
+                data[-1]['url'] = row[3]
+                data[-1]['company'] = row[4]
+                data[-1]['created_at'] = row[5]
+            return data
         except Exception as e:
             print('Get By Company Exception: ' + str(e))
 
@@ -103,3 +111,21 @@ class SQLPostingDatabase(PostingDatabase):
             return data
         except Exception as e:
             print('Get All Exception: ' + str(e))
+
+    def get_one_by_company(self, company):
+        try:
+            cursor = self.conn.cursor()
+            query = '''SELECT * FROM POSTING where company = ? limit 1'''
+            cursor.execute(query, [company])
+            data = {}
+            row = cursor.fetchone()
+            if not row:
+                return row
+            data['title'] = row[1]
+            data['location'] = row[2]
+            data['url'] = row[3]
+            data['company'] = row[4]
+            data['created_at'] = row[5]
+            return data
+        except Exception as e:
+            print('Get By Company Exception: ' + str(e))

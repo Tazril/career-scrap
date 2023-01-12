@@ -34,3 +34,7 @@ class PostingDatabase:
     @abstractmethod
     def search(self, text):
         pass
+
+    @abstractmethod
+    def get_one_by_company(self, company):
+        pass

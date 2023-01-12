@@ -1,3 +1,5 @@
+from datetime import timedelta, date, datetime
+
 from scrappers import COMPANY_LOGO_MAP
 
 
@@ -9,6 +11,14 @@ class PostingRepository:
         self.db = db
 
     def update_postings(self, company, postings):
+        entry = self.db.get_one_by_company(company)
+        if entry:
+            yesterday = date.today() - timedelta(days=1)
+            current = datetime.strptime(entry['created_at'], '%Y-%m-%d %H:%M:%S').date()
+            if yesterday < current:
+                print("[update_postings] Skipping: Update found within 24 hours for", company)
+            return
+        print("[update_postings] Updating Data for ", company)
         self.db.remove_by_company(company)
         for posting in postings:
             self.db.insert(posting['title'], posting['location'], posting['url'], company)
