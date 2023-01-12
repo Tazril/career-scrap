@@ -1,14 +1,20 @@
 from companies.amazon import AmazonApiJobScrapper
 from companies.atlassian import AtlassianApiJobScrapper
 from companies.cashfree import CashFreeBSJobScrapper
+from companies.coursera import CourseraBSJobScrapper
 from companies.cred import CREDApiJobScrapper
 from companies.drivetrain import DrivetrainBSJobScrapper
+from companies.grab import GrabBSJobScrapper
+from companies.groww import GrowwApiJobScrapper
+from companies.jumbotail import JumboTailBSJobScrapper
 from companies.nutanix import NutanixApiJobScrapper
 from companies.paytm import PaytmBSJobScrapper
+from companies.pharmeasy import PharmEasyApiJobScrapper
 from companies.phonepe import PhonePeApiJobScrapper
+from companies.shiprocket import ShipRocketBSJobScrapper
 from companies.uber import UberApiJobScrapper
+from companies.upgrad import UpGradApiJobScrapper
 from companies.zeta import ZetaApiJobScrapper
-from companies.coursera import CourseraBSJobScrapper
 
 SCRAPPERS = [
     CREDApiJobScrapper(),
@@ -21,7 +27,13 @@ SCRAPPERS = [
     NutanixApiJobScrapper(),
     PaytmBSJobScrapper(),
     CashFreeBSJobScrapper(),
-    CourseraBSJobScrapper()
+    CourseraBSJobScrapper(),
+    JumboTailBSJobScrapper(),
+    GrowwApiJobScrapper(),
+    UpGradApiJobScrapper(),
+    GrabBSJobScrapper(),
+    PharmEasyApiJobScrapper(),
+    ShipRocketBSJobScrapper()
 ]
 
 COMPANY_LOGO_MAP = {scrapper.get_name(): scrapper.get_image_url() for scrapper in SCRAPPERS}
