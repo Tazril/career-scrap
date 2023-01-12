@@ -8,6 +8,7 @@ from companies.paytm import PaytmBSJobScrapper
 from companies.phonepe import PhonePeApiJobScrapper
 from companies.uber import UberApiJobScrapper
 from companies.zeta import ZetaApiJobScrapper
+from companies.coursera import CourseraBSJobScrapper
 
 SCRAPPERS = [
     CREDApiJobScrapper(),
@@ -19,7 +20,8 @@ SCRAPPERS = [
     ZetaApiJobScrapper(),
     NutanixApiJobScrapper(),
     PaytmBSJobScrapper(),
-    CashFreeBSJobScrapper()
+    CashFreeBSJobScrapper(),
+    CourseraBSJobScrapper()
 ]
 
 COMPANY_LOGO_MAP = {scrapper.get_name(): scrapper.get_image_url() for scrapper in SCRAPPERS}
