@@ -17,7 +17,11 @@ class MainDriver(threading.Thread):
         for scrapper in self.scrappers:
             try:
                 name = scrapper.get_name()
+                if self.repository.check_if_updated(name):
+                    print("[MainDriver.update_data] Skipping: Update found within 24 hours for", name)
+                    continue
                 data = scrapper.get_jobs()
+                print("[MainDriver.update_data] Updating Data for ", name)
                 self.repository.update_postings(name, data)
             except Exception as e:
                 print("[MainDriver.update_data] Exception Occurred for: " + scrapper.get_name() + " " + str(e))
@@ -33,4 +37,3 @@ class MainDriver(threading.Thread):
             print('[MainDriver.run] Starting Update: ', datetime.now())
             self.update_data()
             print('[MainDriver.run] Update Ended: ', datetime.now())
-

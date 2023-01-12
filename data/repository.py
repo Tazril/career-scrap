@@ -10,15 +10,15 @@ class PostingRepository:
         self.postings = {}
         self.db = db
 
-    def update_postings(self, company, postings):
+    def check_if_updated(self, company):
         entry = self.db.get_one_by_company(company)
         if entry:
             yesterday = date.today() - timedelta(days=1)
             current = datetime.strptime(entry['created_at'], '%Y-%m-%d %H:%M:%S').date()
-            if yesterday < current:
-                print("[update_postings] Skipping: Update found within 24 hours for", company)
-            return
-        print("[update_postings] Updating Data for ", company)
+            return yesterday < current
+        return False
+
+    def update_postings(self, company, postings):
         self.db.remove_by_company(company)
         for posting in postings:
             self.db.insert(posting['title'], posting['location'], posting['url'], company)
