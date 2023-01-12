@@ -37,10 +37,6 @@
         crossorigin="anonymous"></script>
 </body>
 <script type="text/javascript">
-    setTimeout(function () {
-        console.log('Scheduler: Loading data ', new Date())
-        fetch('/refresh')
-    }, 10 * 1000);
     setInterval(function () {
         console.log('Scheduler: Refreshing data ', new Date())
         fetch('/refresh')
