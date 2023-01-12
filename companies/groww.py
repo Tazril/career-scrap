@@ -21,6 +21,6 @@ class GrowwApiJobScrapper(APIJobScrapper):
         for doc in data:
             postings.append({})
             postings[-1]['title'] = doc['title']
-            postings[-1]['url'] = doc['code']
-            postings[-1]['location'] = 'https://groww.skillate.com/jobs/' + str(doc['id'])
+            postings[-1]['url'] = 'https://groww.skillate.com/jobs/' + str(doc['id'])
+            postings[-1]['location'] = doc['location']
         return postings
