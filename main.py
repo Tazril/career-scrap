@@ -1,5 +1,3 @@
-import datetime
-
 from flask import Flask, render_template, request
 
 from driver import MainDriver
@@ -36,12 +34,6 @@ def home():
     text, jobs = get_jobs(request)
     paginated, page, total = get_paginated_jobs(jobs)
     return render_template('index.html', jobs=paginated, search=text, total=total, page=page)
-
-
-@app.route("/refresh")
-def refresh():
-    driver.update_data()
-    return "Data Refreshed " + str(datetime.datetime.now())
 
 
 if __name__ == '__main__':
