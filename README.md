@@ -11,8 +11,7 @@ So, in order to solve this problem, I started this project Career Assistant
 <img width="1057" alt="image" src="https://user-images.githubusercontent.com/42216712/211600776-1ccdf928-6a9a-4b03-9924-ce96d32366c8.png">
 
 ## High Level Design
-<img width="1334" alt="image" src="https://user-images.githubusercontent.com/42216712/211606027-ead5e35f-4df7-4f7c-9031-9bcd700624bb.png">
-
+<img width="1403" alt="image" src="https://user-images.githubusercontent.com/42216712/212469649-38fa1cc8-9586-4bb7-b5c7-82b68dc54271.png">
 
 ## Careers Scraping Flow chart
 <img width="847" alt="image" src="https://user-images.githubusercontent.com/42216712/211606133-347539e9-c201-4265-884a-9abed16a7451.png">
