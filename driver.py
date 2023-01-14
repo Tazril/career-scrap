@@ -1,12 +1,8 @@
 import threading
-import time
-from datetime import datetime
 
 from data.repository import PostingRepository
 from data.sqlite3db import SQLPostingDatabase
 from scrappers import SCRAPPERS
-
-THREAD_SLEEP_DURATION = 24 * 60 * 60  # 24 hours
 
 
 class MainDriver(threading.Thread):
@@ -32,11 +28,6 @@ class MainDriver(threading.Thread):
 
     def run(self):
         self.update_data()
-        while True:
-            time.sleep(THREAD_SLEEP_DURATION)
-            print('[MainDriver.run] Starting Update: ', datetime.now())
-            self.update_data()
-            print('[MainDriver.run] Update Ended: ', datetime.now())
 
 
 if __name__ == '__main__':

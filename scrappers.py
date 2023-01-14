@@ -11,6 +11,7 @@ from companies.frontrow import FrontRowApiJobScrapper
 from companies.grab import GrabBSJobScrapper
 from companies.groww import GrowwApiJobScrapper
 from companies.jumbotail import JumboTailBSJobScrapper
+from companies.juspay import JuspayBSJobScrapper
 from companies.lenskart import LensKartBSJobScrapper
 from companies.nutanix import NutanixApiJobScrapper
 from companies.paypal import PayPalApiJobScrapper
@@ -47,7 +48,8 @@ SCRAPPERS = [
     EpiFiBSJobScrapper(),
     LensKartBSJobScrapper(),
     PayPalApiJobScrapper(),
-    FlipKartApiJobScrapper()
+    FlipKartApiJobScrapper(),
+    JuspayBSJobScrapper()
 ]
 
 COMPANY_LOGO_MAP = {scrapper.get_name(): scrapper.get_image_url() for scrapper in SCRAPPERS}
