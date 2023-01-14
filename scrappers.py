@@ -6,12 +6,14 @@ from companies.coursera import CourseraBSJobScrapper
 from companies.cred import CREDApiJobScrapper
 from companies.drivetrain import DrivetrainBSJobScrapper
 from companies.epifi import EpiFiBSJobScrapper
+from companies.flipkart import FlipKartApiJobScrapper
 from companies.frontrow import FrontRowApiJobScrapper
 from companies.grab import GrabBSJobScrapper
 from companies.groww import GrowwApiJobScrapper
 from companies.jumbotail import JumboTailBSJobScrapper
 from companies.lenskart import LensKartBSJobScrapper
 from companies.nutanix import NutanixApiJobScrapper
+from companies.paypal import PayPalApiJobScrapper
 from companies.paytm import PaytmBSJobScrapper
 from companies.pharmeasy import PharmEasyApiJobScrapper
 from companies.phonepe import PhonePeApiJobScrapper
@@ -43,7 +45,9 @@ SCRAPPERS = [
     SpinnyBSJobScrapper(),
     BlinkItBSJobScrapper(),
     EpiFiBSJobScrapper(),
-    LensKartBSJobScrapper()
+    LensKartBSJobScrapper(),
+    PayPalApiJobScrapper(),
+    FlipKartApiJobScrapper()
 ]
 
 COMPANY_LOGO_MAP = {scrapper.get_name(): scrapper.get_image_url() for scrapper in SCRAPPERS}
