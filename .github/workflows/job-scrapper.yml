@@ -8,17 +8,20 @@ on:
     - cron: '0 12 * * *' # runs at 12:00 UTC everyday
 
 jobs:
-  build:
+  scheduled:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ 3.8, 3.9 ]
     steps:
 
       - name: checkout repo content
         uses: actions/checkout@v3 # checkout the repository content to github runner
 
-      - name: setup python
+      - name: setup python ${{ matrix.python-version }}
         uses: actions/setup-python@v3
         with:
-          python-version: '3.9' # install the python version needed
+          python-version: ${{ matrix.python-version }} # install the python version needed
 
       - name: install python packages
         run: |
@@ -28,15 +31,10 @@ jobs:
       - name: execute py script # run driver.py to get the latest data
         run: python driver.py
 
-      - name: commit files
+      - name: commit files and push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git commit -m "auto refreshing data" -a
-
-      - name: push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          git commit -m "auto refreshing data" -a || exit 0
+          git push
