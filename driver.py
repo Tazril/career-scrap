@@ -37,3 +37,7 @@ class MainDriver(threading.Thread):
             print('[MainDriver.run] Starting Update: ', datetime.now())
             self.update_data()
             print('[MainDriver.run] Update Ended: ', datetime.now())
+
+
+if __name__ == '__main__':
+    MainDriver().update_data()

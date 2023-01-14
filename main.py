@@ -45,5 +45,4 @@ def refresh():
 
 
 if __name__ == '__main__':
-    driver.start()
     app.run()
