@@ -27,6 +27,7 @@ from companies.uber import UberApiJobScrapper
 from companies.upgrad import UpGradApiJobScrapper
 from companies.zeta import ZetaApiJobScrapper
 from companies.zoho import ZohoApiJobScrapper
+from companies.google import GoogleBSJobScrapper
 
 SCRAPPERS = [
     CREDApiJobScrapper(),
@@ -57,7 +58,8 @@ SCRAPPERS = [
     NagarroApiJobScrapper(),
     ZohoApiJobScrapper(),
     FiservApiJobScrapper(),
-    RazorpayApiJobScrapper()
+    RazorpayApiJobScrapper(),
+    GoogleBSJobScrapper()
 ]
 
 COMPANY_LOGO_MAP = {scrapper.get_name(): scrapper.get_image_url() for scrapper in SCRAPPERS}
