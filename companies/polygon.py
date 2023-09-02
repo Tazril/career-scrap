@@ -12,7 +12,7 @@ class PolygonJobScrapper(APIJobScrapper):
         return "Polygon"
 
     def get_image_url(self):
-        return "https://assets-global.website-files.com/637359c81e22b715cec245ad/63dc31f8817a4a509d7635a7_Logo.svg"
+        return "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Polygon_blockchain_logo.png/1200px-Polygon_blockchain_logo.png?20220903072413"
 
 
     def get_jobs(self):
