@@ -20,6 +20,7 @@ from companies.paypal import PayPalApiJobScrapper
 from companies.paytm import PaytmBSJobScrapper
 from companies.pharmeasy import PharmEasyApiJobScrapper
 from companies.phonepe import PhonePeApiJobScrapper
+from companies.polygon import PolygonJobScrapper
 from companies.razorpay import RazorpayApiJobScrapper
 from companies.shiprocket import ShipRocketBSJobScrapper
 from companies.spinny import SpinnyBSJobScrapper
@@ -57,7 +58,8 @@ SCRAPPERS = [
     NagarroApiJobScrapper(),
     ZohoApiJobScrapper(),
     FiservApiJobScrapper(),
-    RazorpayApiJobScrapper()
+    RazorpayApiJobScrapper(),
+    PolygonJobScrapper()
 ]
 
 COMPANY_LOGO_MAP = {scrapper.get_name(): scrapper.get_image_url() for scrapper in SCRAPPERS}
