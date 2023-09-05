@@ -3,7 +3,7 @@ import requests
 from base.apijobscrapper import APIJobScrapper
 
 
-class PolygonJobScrapper(APIJobScrapper):
+class PolygonApiJobScrapper(APIJobScrapper):
 
     def get_json_data(self, url):
         return requests.get(url).json()
@@ -28,4 +28,4 @@ class PolygonJobScrapper(APIJobScrapper):
 
 
 if __name__ == '__main__':
-    print(PolygonJobScrapper().get_jobs())
+    print(PolygonApiJobScrapper().get_jobs())
